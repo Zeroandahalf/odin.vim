@@ -5,6 +5,7 @@ endif
 syntax keyword odinUsing using
 syntax keyword odinTransmute transmute
 syntax keyword odinCast cast
+syntax keyword odinCast auto_cast
 syntax keyword odinDistinct distinct
 syntax keyword odinOpaque opaque
 
@@ -16,12 +17,15 @@ syntax keyword odinBitSet bit_set
 
 syntax keyword odinIf if
 syntax keyword odinWhen when
+syntax keyword odinWhere where
 syntax keyword odinElse else
+syntax keyword odinOrElse or_else
 syntax keyword odinDo do
 syntax keyword odinFor for
 syntax keyword odinSwitch switch
 syntax keyword odinCase case
 syntax keyword odinContinue continue
+syntax keyword odinFall fallthrough
 syntax keyword odinBreak break
 syntax keyword odinSizeOf size_of
 syntax keyword odinOffsetOf offset_of
@@ -32,6 +36,8 @@ syntax keyword odinAlignOf align_of
 
 syntax keyword odinInline inline
 syntax keyword odinNoInline no_inline
+
+syntax keyword odinSwizzle swizzle
 
 syntax match odinTodo "TODO"
 syntax match odinNote "NOTE"
@@ -45,6 +51,7 @@ syntax keyword odinBool true false
 syntax keyword odinNull nil
 syntax keyword odinDynamic dynamic
 syntax keyword odinProc proc
+syntax keyword odinSwizzle Keyword
 syntax keyword odinIn in
 syntax keyword odinNotIn notin
 syntax keyword odinNotIn not_in
@@ -56,6 +63,7 @@ syntax match odinNoinit "---"
 syntax keyword odinPackage package
 
 syntax keyword odinReturn return
+syntax keyword odinOrReturn or_return
 syntax keyword odinDefer defer
 
 syntax region odinChar start=/\v'/ skip=/\v\\./ end=/\v'/
@@ -98,12 +106,15 @@ highlight link odinCast Keyword
 highlight link odinDistinct Keyword
 highlight link odinOpaque Keyword
 highlight link odinReturn Keyword
+highlight link odinOrReturn Keyword
 highlight link odinSwitch Keyword
 highlight link odinCase Keyword
 highlight link odinProc Keyword
+highlight link odinSwizzle Keyword
 highlight link odinIn Keyword
 highlight link odinNotIn Keyword
 highlight link odinContinue Keyword
+highlight link odinFall Keyword
 highlight link odinBreak Keyword
 highlight link odinSizeOf Keyword
 highlight link odinOffsetOf Keyword
@@ -151,7 +162,10 @@ highlight link odinFunction Function
 highlight link odinMacro Macro
 highlight link odinIf Conditional
 highlight link odinWhen Conditional
+highlight link odinWhere Conditional
+
 highlight link odinElse Conditional
+highlight link odinOrElse Conditional
 highlight link odinFor Repeat
 
 highlight link odinLineComment Comment
