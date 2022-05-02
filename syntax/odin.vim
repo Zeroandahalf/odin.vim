@@ -2,6 +2,7 @@ if exists("b:current_syntax")
   finish
 endif
 
+syntax keyword odinContext context
 syntax keyword odinUsing using
 syntax keyword odinTransmute transmute
 syntax keyword odinCast cast
@@ -100,6 +101,7 @@ syntax match odinCommentNote "@\<\w\+\>" contained display
 syntax region odinLineComment start=/\/\// end=/$/  contains=odinLineComment, odinCommentNote, odinTodo, odinNote, odinXXX, odinFixMe, odinNoCheckin, odinHack
 syntax region odinBlockComment start=/\v\/\*/ end=/\v\*\// contains=odinBlockComment, odinCommentNote, odinTodo, odinNote, odinXXX, odinFixMe, odinNoCheckin, odinHack
 
+highlight link odinContext Keyword
 highlight link odinUsing Keyword
 highlight link odinTransmute Keyword
 highlight link odinCast Keyword
