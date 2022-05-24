@@ -70,9 +70,9 @@ syntax keyword odinReturn return
 syntax keyword odinOrReturn or_return
 syntax keyword odinDefer defer
 
-syntax region odinChar start=/\v'/ skip=/\v\\./ end=/\v'/
-syntax region odinString start=/\v"/ skip=/\v\\./ end=/\v"/
-syntax region odinRawString start=/\v`/ skip=/\v\\./ end=/\v`/
+syntax region odinRawString start=+`+ end=+`+
+syntax region odinChar start=+'+ skip=+\\\\\|\\'+ end=+'+
+syntax region odinString start=+"+ skip=+\\\\\|\\'+ end=+"+
 
 syntax match odinFunction "\v<\w*>(\s*::\s*proc)@="
 
@@ -101,7 +101,7 @@ syntax match odinMacro "#\<\w\+\>" display
 syntax match odinTemplate "$\<\w\+\>"
 
 syntax match odinCommentNote "@\<\w\+\>" contained display
-syntax region odinLineComment start=/\/\// end=/$/  contains=odinLineComment, odinCommentNote, odinTodo, odinNote, odinXXX, odinFixMe, odinNoCheckin, odinHack
+syntax region odinLineComment start=/\/\// end=/$/  contains=odinCommentNote, odinTodo, odinNote, odinXXX, odinFixMe, odinNoCheckin, odinHack
 syntax region odinBlockComment start=/\v\/\*/ end=/\v\*\// contains=odinBlockComment, odinCommentNote, odinTodo, odinNote, odinXXX, odinFixMe, odinNoCheckin, odinHack
 
 highlight link odinContext Keyword
